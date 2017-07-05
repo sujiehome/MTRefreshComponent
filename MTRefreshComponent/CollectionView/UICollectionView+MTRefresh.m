@@ -52,7 +52,7 @@ static char kUnrealizedSectionFooter;
 {
     [self hook_layoutSubviews];
     
-    
+    self.nullDataView.frame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
 }
 
 - (void)hook_setDataSource:(id<UICollectionViewDataSource>)dataSource
@@ -272,6 +272,9 @@ static char kUnrealizedSectionFooter;
                 objc_setAssociatedObject(self, @selector(nullDataView), view, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
             }
         }
+    }
+    if (!view.superview) {
+        [self addSubview:view];
     }
     return view;
 }
