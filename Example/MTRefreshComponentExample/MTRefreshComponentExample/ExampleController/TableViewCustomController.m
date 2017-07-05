@@ -7,8 +7,13 @@
 //
 
 #import "TableViewCustomController.h"
+#import "CustomRefreshView.h"
+#import "CustomNullDataView.h"
 
-@interface TableViewCustomController ()
+@interface TableViewCustomController ()<UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) NSMutableArray *dataArray;
+@property (nonatomic, strong) UITableView *exampleTableView;
 
 @end
 
@@ -18,6 +23,58 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"Table Custom";
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"清空" style:UIBarButtonItemStylePlain target:self action:@selector(clearClick)];
+    self.navigationItem.rightBarButtonItem = item;
+    
+    self.dataArray = [@[] mutableCopy];
+    for (int i = 0; i < 20; i++) {
+        [self.dataArray addObject:@""];
+    }
+    
+    self.exampleTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    self.exampleTableView.delegate = self;
+    self.exampleTableView.dataSource = self;
+    self.exampleTableView.tableFooterView = [UIView new];
+    
+    CustomNullDataView *nullDataView = [[CustomNullDataView alloc] init];
+    nullDataView.backgroundColor = [UIColor greenColor];
+    self.exampleTableView.nullDataView = nullDataView;
+    
+    __weak typeof(self) wself = self;
+    CustomRefreshView *view = [[CustomRefreshView alloc] init];
+    view.frame = CGRectMake(0, 0, self.exampleTableView.bounds.size.width, 40);
+    [self.exampleTableView addTopRefreshCustomView:view withTriggerBlock:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            [wself.dataArray removeAllObjects];
+            for (int i = 0; i < 20; i++) {
+                [wself.dataArray addObject:@""];
+            }
+            
+            [wself.exampleTableView resetNoMoreData];
+            
+            [wself.exampleTableView reloadData];
+        });
+        NSLog(@"刷新");
+    }];
+    [self.exampleTableView addBottomRefreshWithAutoRefresh:YES triggerBlock:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            if (wself.dataArray.count >= 30) {
+                [wself.exampleTableView noMoreData];
+            }else {
+                for (int i = 0; i < 10; i++) {
+                    [wself.dataArray addObject:@""];
+                }
+            }
+            
+            [wself.exampleTableView reloadData];
+        });
+        NSLog(@"加载");
+    }];
+    
+    [self.view addSubview:self.exampleTableView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,14 +82,30 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - Action
+- (void)clearClick
+{
+    [self.dataArray removeAllObjects];
+    [self.exampleTableView reloadData];
 }
-*/
+
+#pragma mark - UITableViewDelegate & UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.dataArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *identifier = @"ExampleCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%ld组 %ld行", indexPath.section, indexPath.row];
+    
+    return cell;
+}
 
 @end

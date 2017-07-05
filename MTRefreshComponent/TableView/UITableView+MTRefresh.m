@@ -251,6 +251,9 @@ static char kUnrealizedSectionFooter;
             }
         }
     }
+    if (!view.superview) {
+        [self addSubview:view];
+    }
     return view;
 }
 

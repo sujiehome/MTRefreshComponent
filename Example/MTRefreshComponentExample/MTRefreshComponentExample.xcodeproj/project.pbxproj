@@ -27,6 +27,7 @@
 		CBE24D491F0CFCAD006CC264 /* UIScrollView+MTRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24D3E1F0CFCAD006CC264 /* UIScrollView+MTRefresh.m */; };
 		CBE24D4A1F0CFCAD006CC264 /* UITableView+MTRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24D411F0CFCAD006CC264 /* UITableView+MTRefresh.m */; };
 		CBE24D4B1F0CFCAD006CC264 /* MTMethodSwizzled.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24D441F0CFCAD006CC264 /* MTMethodSwizzled.m */; };
+		CBE24D4E1F0D0A40006CC264 /* CustomNullDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24D4D1F0D0A40006CC264 /* CustomNullDataView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,8 @@
 		CBE24D411F0CFCAD006CC264 /* UITableView+MTRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+MTRefresh.m"; sourceTree = "<group>"; };
 		CBE24D431F0CFCAD006CC264 /* MTMethodSwizzled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTMethodSwizzled.h; sourceTree = "<group>"; };
 		CBE24D441F0CFCAD006CC264 /* MTMethodSwizzled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTMethodSwizzled.m; sourceTree = "<group>"; };
+		CBE24D4C1F0D0A40006CC264 /* CustomNullDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNullDataView.h; sourceTree = "<group>"; };
+		CBE24D4D1F0D0A40006CC264 /* CustomNullDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNullDataView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +200,8 @@
 			children = (
 				CBE24CD91F0B982C006CC264 /* CustomRefreshView.h */,
 				CBE24CDA1F0B982C006CC264 /* CustomRefreshView.m */,
+				CBE24D4C1F0D0A40006CC264 /* CustomNullDataView.h */,
+				CBE24D4D1F0D0A40006CC264 /* CustomNullDataView.m */,
 			);
 			path = ExampleView;
 			sourceTree = "<group>";
@@ -419,6 +424,7 @@
 				CBE24D461F0CFCAD006CC264 /* MTBaseRefreshView.m in Sources */,
 				CBE24D4A1F0CFCAD006CC264 /* UITableView+MTRefresh.m in Sources */,
 				CBE24D4B1F0CFCAD006CC264 /* MTMethodSwizzled.m in Sources */,
+				CBE24D4E1F0D0A40006CC264 /* CustomNullDataView.m in Sources */,
 				CBE24CCA1F0B7EE6006CC264 /* TableViewDefaultController.m in Sources */,
 				CBE24CD01F0B7F10006CC264 /* CollectionViewDefaultController.m in Sources */,
 				CBE24CDB1F0B982C006CC264 /* CustomRefreshView.m in Sources */,

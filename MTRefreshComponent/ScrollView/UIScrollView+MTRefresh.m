@@ -12,8 +12,25 @@
 #import <objc/message.h>
 #import "MTRefreshConfig.h"
 #import "MTScrollViewAssist.h"
+#import "MTMethodSwizzled.h"
 
 @implementation UIScrollView (MTRefresh)
+
++ (void)load
+{
+    [MTMethodSwizzled exchangeImpWithClass:self originalSel:@selector(didMoveToSuperview) swizzledSel:@selector(hook_didMoveToSuperview)];
+}
+
+- (void)hook_didMoveToSuperview
+{
+    if ([self isMemberOfClass:[UITableView class]] ||
+        [self isMemberOfClass:[UICollectionView class]]) {
+        if (!objc_getAssociatedObject(self.superview, @selector(addAssist))) {
+            [self addAssist];
+        }
+    }
+    [self hook_didMoveToSuperview];
+}
 
 #pragma mark - API
 - (void)addTopRefreshWithTriggerBlock:(void (^)())triggerBlock
@@ -38,7 +55,6 @@
                     [header addSubview:view];
                     
                     objc_setAssociatedObject(self, @selector(refreshView), view, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-                    [self addAssist];
                 }else {
                     [self headerViewConfig];
                 }
@@ -237,6 +253,8 @@
                     break;
             }
         }
+    }else if ([keyPath isEqualToString:@"__superview"]) {
+        NSLog(@"superview");
     }
 }
 
@@ -244,12 +262,16 @@
 #pragma mark - Assist
 - (void)addAssist
 {
+    if (!self.superview) {
+        return;
+    }
+    
     MTScrollViewAssist *assist = [[MTScrollViewAssist alloc] initWithDeallocBlock:^{
         //此处必须使用self进行循环引用，否则提前释放会造成KVO没有及时释放而导致crash
         [self removeObserver:self forKeyPath:@"contentOffset"];
     }];
     
-    objc_setAssociatedObject(self.superview, (__bridge const void *)(assist.block), assist, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self.superview, @selector(addAssist), assist, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     [self addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
 }
 

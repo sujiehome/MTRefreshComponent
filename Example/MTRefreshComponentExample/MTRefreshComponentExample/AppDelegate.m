@@ -70,8 +70,8 @@
     [MTRefreshConfig shared].footerTextColor = [UIColor grayColor];
     
     //设置自定义视图
-    [MTRefreshConfig shared].customTopView = @"CustomRefreshView";
-    [MTRefreshConfig shared].customNullDataView = @"";
+//    [MTRefreshConfig shared].customTopView = @"CustomRefreshView";
+    [MTRefreshConfig shared].customNullDataView = @"CustomNullDataView";
 }
 
 
