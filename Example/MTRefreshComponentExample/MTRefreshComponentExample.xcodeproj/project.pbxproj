@@ -1,0 +1,642 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		96416708BFA718DA7E65DFBD /* libPods-MTRefreshComponentExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1AB84D3B0CA13BA24A37B28 /* libPods-MTRefreshComponentExample.a */; };
+		CBE24C891F0B7DD1006CC264 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24C881F0B7DD1006CC264 /* main.m */; };
+		CBE24C8C1F0B7DD1006CC264 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24C8B1F0B7DD1006CC264 /* AppDelegate.m */; };
+		CBE24C8F1F0B7DD1006CC264 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24C8E1F0B7DD1006CC264 /* ViewController.m */; };
+		CBE24C921F0B7DD1006CC264 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBE24C901F0B7DD1006CC264 /* Main.storyboard */; };
+		CBE24C941F0B7DD1006CC264 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBE24C931F0B7DD1006CC264 /* Assets.xcassets */; };
+		CBE24C971F0B7DD1006CC264 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBE24C951F0B7DD1006CC264 /* LaunchScreen.storyboard */; };
+		CBE24CA21F0B7DD1006CC264 /* MTRefreshComponentExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24CA11F0B7DD1006CC264 /* MTRefreshComponentExampleTests.m */; };
+		CBE24CC01F0B7E3D006CC264 /* UICollectionView+MTRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24CAF1F0B7E3D006CC264 /* UICollectionView+MTRefresh.m */; };
+		CBE24CC11F0B7E3D006CC264 /* MTBaseRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24CB11F0B7E3D006CC264 /* MTBaseRefreshView.m */; };
+		CBE24CC21F0B7E3D006CC264 /* MTRefreshConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24CB41F0B7E3D006CC264 /* MTRefreshConfig.m */; };
+		CBE24CC31F0B7E3D006CC264 /* MTScrollViewAssist.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24CB71F0B7E3D006CC264 /* MTScrollViewAssist.m */; };
+		CBE24CC41F0B7E3D006CC264 /* UIScrollView+MTRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24CB91F0B7E3D006CC264 /* UIScrollView+MTRefresh.m */; };
+		CBE24CC51F0B7E3D006CC264 /* UITableView+MTRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24CBC1F0B7E3D006CC264 /* UITableView+MTRefresh.m */; };
+		CBE24CC61F0B7E3D006CC264 /* MTMethodSwizzled.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24CBF1F0B7E3D006CC264 /* MTMethodSwizzled.m */; };
+		CBE24CCA1F0B7EE6006CC264 /* TableViewDefaultController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24CC91F0B7EE6006CC264 /* TableViewDefaultController.m */; };
+		CBE24CCD1F0B7EFF006CC264 /* TableViewCustomController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24CCC1F0B7EFF006CC264 /* TableViewCustomController.m */; };
+		CBE24CD01F0B7F10006CC264 /* CollectionViewDefaultController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24CCF1F0B7F10006CC264 /* CollectionViewDefaultController.m */; };
+		CBE24CD31F0B7F22006CC264 /* CollectionViewCustomController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24CD21F0B7F22006CC264 /* CollectionViewCustomController.m */; };
+		CBE24CDB1F0B982C006CC264 /* CustomRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24CDA1F0B982C006CC264 /* CustomRefreshView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CBE24C9E1F0B7DD1006CC264 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBE24C7C1F0B7DD1006CC264 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CBE24C831F0B7DD1006CC264;
+			remoteInfo = MTRefreshComponentExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A1AB84D3B0CA13BA24A37B28 /* libPods-MTRefreshComponentExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MTRefreshComponentExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A58093D52466842911E075FB /* Pods-MTRefreshComponentExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MTRefreshComponentExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-MTRefreshComponentExample/Pods-MTRefreshComponentExample.release.xcconfig"; sourceTree = "<group>"; };
+		B3E6F7CE2533A3E4740A9916 /* Pods-MTRefreshComponentExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MTRefreshComponentExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MTRefreshComponentExample/Pods-MTRefreshComponentExample.debug.xcconfig"; sourceTree = "<group>"; };
+		CBE24C841F0B7DD1006CC264 /* MTRefreshComponentExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTRefreshComponentExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBE24C881F0B7DD1006CC264 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CBE24C8A1F0B7DD1006CC264 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CBE24C8B1F0B7DD1006CC264 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CBE24C8D1F0B7DD1006CC264 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CBE24C8E1F0B7DD1006CC264 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CBE24C911F0B7DD1006CC264 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CBE24C931F0B7DD1006CC264 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CBE24C961F0B7DD1006CC264 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CBE24C981F0B7DD1006CC264 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBE24C9D1F0B7DD1006CC264 /* MTRefreshComponentExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MTRefreshComponentExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBE24CA11F0B7DD1006CC264 /* MTRefreshComponentExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTRefreshComponentExampleTests.m; sourceTree = "<group>"; };
+		CBE24CA31F0B7DD1006CC264 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBE24CAE1F0B7E3D006CC264 /* UICollectionView+MTRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+MTRefresh.h"; sourceTree = "<group>"; };
+		CBE24CAF1F0B7E3D006CC264 /* UICollectionView+MTRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+MTRefresh.m"; sourceTree = "<group>"; };
+		CBE24CB01F0B7E3D006CC264 /* MTBaseRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBaseRefreshView.h; sourceTree = "<group>"; };
+		CBE24CB11F0B7E3D006CC264 /* MTBaseRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBaseRefreshView.m; sourceTree = "<group>"; };
+		CBE24CB21F0B7E3D006CC264 /* MTRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTRefresh.h; sourceTree = "<group>"; };
+		CBE24CB31F0B7E3D006CC264 /* MTRefreshConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTRefreshConfig.h; sourceTree = "<group>"; };
+		CBE24CB41F0B7E3D006CC264 /* MTRefreshConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTRefreshConfig.m; sourceTree = "<group>"; };
+		CBE24CB61F0B7E3D006CC264 /* MTScrollViewAssist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTScrollViewAssist.h; sourceTree = "<group>"; };
+		CBE24CB71F0B7E3D006CC264 /* MTScrollViewAssist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTScrollViewAssist.m; sourceTree = "<group>"; };
+		CBE24CB81F0B7E3D006CC264 /* UIScrollView+MTRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MTRefresh.h"; sourceTree = "<group>"; };
+		CBE24CB91F0B7E3D006CC264 /* UIScrollView+MTRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MTRefresh.m"; sourceTree = "<group>"; };
+		CBE24CBB1F0B7E3D006CC264 /* UITableView+MTRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+MTRefresh.h"; sourceTree = "<group>"; };
+		CBE24CBC1F0B7E3D006CC264 /* UITableView+MTRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+MTRefresh.m"; sourceTree = "<group>"; };
+		CBE24CBE1F0B7E3D006CC264 /* MTMethodSwizzled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTMethodSwizzled.h; sourceTree = "<group>"; };
+		CBE24CBF1F0B7E3D006CC264 /* MTMethodSwizzled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTMethodSwizzled.m; sourceTree = "<group>"; };
+		CBE24CC81F0B7EE6006CC264 /* TableViewDefaultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewDefaultController.h; sourceTree = "<group>"; };
+		CBE24CC91F0B7EE6006CC264 /* TableViewDefaultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewDefaultController.m; sourceTree = "<group>"; };
+		CBE24CCB1F0B7EFF006CC264 /* TableViewCustomController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCustomController.h; sourceTree = "<group>"; };
+		CBE24CCC1F0B7EFF006CC264 /* TableViewCustomController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCustomController.m; sourceTree = "<group>"; };
+		CBE24CCE1F0B7F10006CC264 /* CollectionViewDefaultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewDefaultController.h; sourceTree = "<group>"; };
+		CBE24CCF1F0B7F10006CC264 /* CollectionViewDefaultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewDefaultController.m; sourceTree = "<group>"; };
+		CBE24CD11F0B7F22006CC264 /* CollectionViewCustomController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCustomController.h; sourceTree = "<group>"; };
+		CBE24CD21F0B7F22006CC264 /* CollectionViewCustomController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCustomController.m; sourceTree = "<group>"; };
+		CBE24CD61F0B850A006CC264 /* MTRefreshComponentExample-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MTRefreshComponentExample-Prefix.pch"; sourceTree = "<group>"; };
+		CBE24CD91F0B982C006CC264 /* CustomRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomRefreshView.h; sourceTree = "<group>"; };
+		CBE24CDA1F0B982C006CC264 /* CustomRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomRefreshView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CBE24C811F0B7DD1006CC264 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96416708BFA718DA7E65DFBD /* libPods-MTRefreshComponentExample.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBE24C9A1F0B7DD1006CC264 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A4F7BC213EB193537641A9C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A1AB84D3B0CA13BA24A37B28 /* libPods-MTRefreshComponentExample.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9B9FA03D8BCC090BEED6A983 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B3E6F7CE2533A3E4740A9916 /* Pods-MTRefreshComponentExample.debug.xcconfig */,
+				A58093D52466842911E075FB /* Pods-MTRefreshComponentExample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CBE24C7B1F0B7DD1006CC264 = {
+			isa = PBXGroup;
+			children = (
+				CBE24C861F0B7DD1006CC264 /* MTRefreshComponentExample */,
+				CBE24CA01F0B7DD1006CC264 /* MTRefreshComponentExampleTests */,
+				CBE24C851F0B7DD1006CC264 /* Products */,
+				9B9FA03D8BCC090BEED6A983 /* Pods */,
+				1A4F7BC213EB193537641A9C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CBE24C851F0B7DD1006CC264 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CBE24C841F0B7DD1006CC264 /* MTRefreshComponentExample.app */,
+				CBE24C9D1F0B7DD1006CC264 /* MTRefreshComponentExampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CBE24C861F0B7DD1006CC264 /* MTRefreshComponentExample */ = {
+			isa = PBXGroup;
+			children = (
+				CBE24CD61F0B850A006CC264 /* MTRefreshComponentExample-Prefix.pch */,
+				CBE24CAC1F0B7E3D006CC264 /* MTRefreshComponent */,
+				CBE24C8A1F0B7DD1006CC264 /* AppDelegate.h */,
+				CBE24C8B1F0B7DD1006CC264 /* AppDelegate.m */,
+				CBE24C8D1F0B7DD1006CC264 /* ViewController.h */,
+				CBE24C8E1F0B7DD1006CC264 /* ViewController.m */,
+				CBE24CD81F0B8AFF006CC264 /* ExampleView */,
+				CBE24CC71F0B7EA9006CC264 /* ExampleController */,
+				CBE24C901F0B7DD1006CC264 /* Main.storyboard */,
+				CBE24C931F0B7DD1006CC264 /* Assets.xcassets */,
+				CBE24C951F0B7DD1006CC264 /* LaunchScreen.storyboard */,
+				CBE24C981F0B7DD1006CC264 /* Info.plist */,
+				CBE24C871F0B7DD1006CC264 /* Supporting Files */,
+			);
+			path = MTRefreshComponentExample;
+			sourceTree = "<group>";
+		};
+		CBE24C871F0B7DD1006CC264 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CBE24C881F0B7DD1006CC264 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CBE24CA01F0B7DD1006CC264 /* MTRefreshComponentExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				CBE24CA11F0B7DD1006CC264 /* MTRefreshComponentExampleTests.m */,
+				CBE24CA31F0B7DD1006CC264 /* Info.plist */,
+			);
+			path = MTRefreshComponentExampleTests;
+			sourceTree = "<group>";
+		};
+		CBE24CAC1F0B7E3D006CC264 /* MTRefreshComponent */ = {
+			isa = PBXGroup;
+			children = (
+				CBE24CAD1F0B7E3D006CC264 /* CollectionView */,
+				CBE24CB01F0B7E3D006CC264 /* MTBaseRefreshView.h */,
+				CBE24CB11F0B7E3D006CC264 /* MTBaseRefreshView.m */,
+				CBE24CB21F0B7E3D006CC264 /* MTRefresh.h */,
+				CBE24CB31F0B7E3D006CC264 /* MTRefreshConfig.h */,
+				CBE24CB41F0B7E3D006CC264 /* MTRefreshConfig.m */,
+				CBE24CB51F0B7E3D006CC264 /* ScrollView */,
+				CBE24CBA1F0B7E3D006CC264 /* TableView */,
+				CBE24CBD1F0B7E3D006CC264 /* Tools */,
+			);
+			path = MTRefreshComponent;
+			sourceTree = "<group>";
+		};
+		CBE24CAD1F0B7E3D006CC264 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				CBE24CAE1F0B7E3D006CC264 /* UICollectionView+MTRefresh.h */,
+				CBE24CAF1F0B7E3D006CC264 /* UICollectionView+MTRefresh.m */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		CBE24CB51F0B7E3D006CC264 /* ScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				CBE24CB61F0B7E3D006CC264 /* MTScrollViewAssist.h */,
+				CBE24CB71F0B7E3D006CC264 /* MTScrollViewAssist.m */,
+				CBE24CB81F0B7E3D006CC264 /* UIScrollView+MTRefresh.h */,
+				CBE24CB91F0B7E3D006CC264 /* UIScrollView+MTRefresh.m */,
+			);
+			path = ScrollView;
+			sourceTree = "<group>";
+		};
+		CBE24CBA1F0B7E3D006CC264 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				CBE24CBB1F0B7E3D006CC264 /* UITableView+MTRefresh.h */,
+				CBE24CBC1F0B7E3D006CC264 /* UITableView+MTRefresh.m */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		CBE24CBD1F0B7E3D006CC264 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				CBE24CBE1F0B7E3D006CC264 /* MTMethodSwizzled.h */,
+				CBE24CBF1F0B7E3D006CC264 /* MTMethodSwizzled.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		CBE24CC71F0B7EA9006CC264 /* ExampleController */ = {
+			isa = PBXGroup;
+			children = (
+				CBE24CC81F0B7EE6006CC264 /* TableViewDefaultController.h */,
+				CBE24CC91F0B7EE6006CC264 /* TableViewDefaultController.m */,
+				CBE24CCB1F0B7EFF006CC264 /* TableViewCustomController.h */,
+				CBE24CCC1F0B7EFF006CC264 /* TableViewCustomController.m */,
+				CBE24CCE1F0B7F10006CC264 /* CollectionViewDefaultController.h */,
+				CBE24CCF1F0B7F10006CC264 /* CollectionViewDefaultController.m */,
+				CBE24CD11F0B7F22006CC264 /* CollectionViewCustomController.h */,
+				CBE24CD21F0B7F22006CC264 /* CollectionViewCustomController.m */,
+			);
+			path = ExampleController;
+			sourceTree = "<group>";
+		};
+		CBE24CD81F0B8AFF006CC264 /* ExampleView */ = {
+			isa = PBXGroup;
+			children = (
+				CBE24CD91F0B982C006CC264 /* CustomRefreshView.h */,
+				CBE24CDA1F0B982C006CC264 /* CustomRefreshView.m */,
+			);
+			path = ExampleView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CBE24C831F0B7DD1006CC264 /* MTRefreshComponentExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBE24CA61F0B7DD1006CC264 /* Build configuration list for PBXNativeTarget "MTRefreshComponentExample" */;
+			buildPhases = (
+				BD496FFA0D079E2E8A305EB3 /* [CP] Check Pods Manifest.lock */,
+				CBE24C801F0B7DD1006CC264 /* Sources */,
+				CBE24C811F0B7DD1006CC264 /* Frameworks */,
+				CBE24C821F0B7DD1006CC264 /* Resources */,
+				E974C8AD0453D9301D7CDED5 /* [CP] Embed Pods Frameworks */,
+				F196D07DFFF96EF56F2A1242 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MTRefreshComponentExample;
+			productName = MTRefreshComponentExample;
+			productReference = CBE24C841F0B7DD1006CC264 /* MTRefreshComponentExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CBE24C9C1F0B7DD1006CC264 /* MTRefreshComponentExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBE24CA91F0B7DD1006CC264 /* Build configuration list for PBXNativeTarget "MTRefreshComponentExampleTests" */;
+			buildPhases = (
+				CBE24C991F0B7DD1006CC264 /* Sources */,
+				CBE24C9A1F0B7DD1006CC264 /* Frameworks */,
+				CBE24C9B1F0B7DD1006CC264 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CBE24C9F1F0B7DD1006CC264 /* PBXTargetDependency */,
+			);
+			name = MTRefreshComponentExampleTests;
+			productName = MTRefreshComponentExampleTests;
+			productReference = CBE24C9D1F0B7DD1006CC264 /* MTRefreshComponentExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CBE24C7C1F0B7DD1006CC264 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Monk.Tang;
+				TargetAttributes = {
+					CBE24C831F0B7DD1006CC264 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+					CBE24C9C1F0B7DD1006CC264 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = CBE24C831F0B7DD1006CC264;
+					};
+				};
+			};
+			buildConfigurationList = CBE24C7F1F0B7DD1006CC264 /* Build configuration list for PBXProject "MTRefreshComponentExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CBE24C7B1F0B7DD1006CC264;
+			productRefGroup = CBE24C851F0B7DD1006CC264 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CBE24C831F0B7DD1006CC264 /* MTRefreshComponentExample */,
+				CBE24C9C1F0B7DD1006CC264 /* MTRefreshComponentExampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CBE24C821F0B7DD1006CC264 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBE24C971F0B7DD1006CC264 /* LaunchScreen.storyboard in Resources */,
+				CBE24C941F0B7DD1006CC264 /* Assets.xcassets in Resources */,
+				CBE24C921F0B7DD1006CC264 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBE24C9B1F0B7DD1006CC264 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BD496FFA0D079E2E8A305EB3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E974C8AD0453D9301D7CDED5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MTRefreshComponentExample/Pods-MTRefreshComponentExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F196D07DFFF96EF56F2A1242 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MTRefreshComponentExample/Pods-MTRefreshComponentExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CBE24C801F0B7DD1006CC264 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBE24CC21F0B7E3D006CC264 /* MTRefreshConfig.m in Sources */,
+				CBE24C8F1F0B7DD1006CC264 /* ViewController.m in Sources */,
+				CBE24CC51F0B7E3D006CC264 /* UITableView+MTRefresh.m in Sources */,
+				CBE24C8C1F0B7DD1006CC264 /* AppDelegate.m in Sources */,
+				CBE24C891F0B7DD1006CC264 /* main.m in Sources */,
+				CBE24CCA1F0B7EE6006CC264 /* TableViewDefaultController.m in Sources */,
+				CBE24CD01F0B7F10006CC264 /* CollectionViewDefaultController.m in Sources */,
+				CBE24CDB1F0B982C006CC264 /* CustomRefreshView.m in Sources */,
+				CBE24CC31F0B7E3D006CC264 /* MTScrollViewAssist.m in Sources */,
+				CBE24CC01F0B7E3D006CC264 /* UICollectionView+MTRefresh.m in Sources */,
+				CBE24CCD1F0B7EFF006CC264 /* TableViewCustomController.m in Sources */,
+				CBE24CD31F0B7F22006CC264 /* CollectionViewCustomController.m in Sources */,
+				CBE24CC41F0B7E3D006CC264 /* UIScrollView+MTRefresh.m in Sources */,
+				CBE24CC11F0B7E3D006CC264 /* MTBaseRefreshView.m in Sources */,
+				CBE24CC61F0B7E3D006CC264 /* MTMethodSwizzled.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBE24C991F0B7DD1006CC264 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBE24CA21F0B7DD1006CC264 /* MTRefreshComponentExampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CBE24C9F1F0B7DD1006CC264 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CBE24C831F0B7DD1006CC264 /* MTRefreshComponentExample */;
+			targetProxy = CBE24C9E1F0B7DD1006CC264 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CBE24C901F0B7DD1006CC264 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CBE24C911F0B7DD1006CC264 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CBE24C951F0B7DD1006CC264 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CBE24C961F0B7DD1006CC264 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CBE24CA41F0B7DD1006CC264 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CBE24CA51F0B7DD1006CC264 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CBE24CA71F0B7DD1006CC264 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3E6F7CE2533A3E4740A9916 /* Pods-MTRefreshComponentExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MTRefreshComponentExample/MTRefreshComponentExample-Prefix.pch";
+				INFOPLIST_FILE = MTRefreshComponentExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Monk.Tang.MTRefreshComponentExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CBE24CA81F0B7DD1006CC264 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A58093D52466842911E075FB /* Pods-MTRefreshComponentExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MTRefreshComponentExample/MTRefreshComponentExample-Prefix.pch";
+				INFOPLIST_FILE = MTRefreshComponentExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Monk.Tang.MTRefreshComponentExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CBE24CAA1F0B7DD1006CC264 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MTRefreshComponentExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Monk.Tang.MTRefreshComponentExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MTRefreshComponentExample.app/MTRefreshComponentExample";
+			};
+			name = Debug;
+		};
+		CBE24CAB1F0B7DD1006CC264 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MTRefreshComponentExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Monk.Tang.MTRefreshComponentExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MTRefreshComponentExample.app/MTRefreshComponentExample";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CBE24C7F1F0B7DD1006CC264 /* Build configuration list for PBXProject "MTRefreshComponentExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBE24CA41F0B7DD1006CC264 /* Debug */,
+				CBE24CA51F0B7DD1006CC264 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBE24CA61F0B7DD1006CC264 /* Build configuration list for PBXNativeTarget "MTRefreshComponentExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBE24CA71F0B7DD1006CC264 /* Debug */,
+				CBE24CA81F0B7DD1006CC264 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBE24CA91F0B7DD1006CC264 /* Build configuration list for PBXNativeTarget "MTRefreshComponentExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBE24CAA1F0B7DD1006CC264 /* Debug */,
+				CBE24CAB1F0B7DD1006CC264 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CBE24C7C1F0B7DD1006CC264 /* Project object */;
+}
