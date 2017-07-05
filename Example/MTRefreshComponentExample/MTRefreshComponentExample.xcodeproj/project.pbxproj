@@ -20,13 +20,13 @@
 		CBE24CD01F0B7F10006CC264 /* CollectionViewDefaultController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24CCF1F0B7F10006CC264 /* CollectionViewDefaultController.m */; };
 		CBE24CD31F0B7F22006CC264 /* CollectionViewCustomController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24CD21F0B7F22006CC264 /* CollectionViewCustomController.m */; };
 		CBE24CDB1F0B982C006CC264 /* CustomRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24CDA1F0B982C006CC264 /* CustomRefreshView.m */; };
-		CBE24D0F1F0CF984006CC264 /* UICollectionView+MTRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24CFE1F0CF984006CC264 /* UICollectionView+MTRefresh.m */; };
-		CBE24D101F0CF984006CC264 /* MTBaseRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24D001F0CF984006CC264 /* MTBaseRefreshView.m */; };
-		CBE24D111F0CF984006CC264 /* MTRefreshConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24D031F0CF984006CC264 /* MTRefreshConfig.m */; };
-		CBE24D121F0CF984006CC264 /* MTScrollViewAssist.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24D061F0CF984006CC264 /* MTScrollViewAssist.m */; };
-		CBE24D131F0CF984006CC264 /* UIScrollView+MTRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24D081F0CF984006CC264 /* UIScrollView+MTRefresh.m */; };
-		CBE24D141F0CF984006CC264 /* UITableView+MTRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24D0B1F0CF984006CC264 /* UITableView+MTRefresh.m */; };
-		CBE24D151F0CF984006CC264 /* MTMethodSwizzled.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24D0E1F0CF984006CC264 /* MTMethodSwizzled.m */; };
+		CBE24D451F0CFCAD006CC264 /* UICollectionView+MTRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24D341F0CFCAD006CC264 /* UICollectionView+MTRefresh.m */; };
+		CBE24D461F0CFCAD006CC264 /* MTBaseRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24D361F0CFCAD006CC264 /* MTBaseRefreshView.m */; };
+		CBE24D471F0CFCAD006CC264 /* MTRefreshConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24D391F0CFCAD006CC264 /* MTRefreshConfig.m */; };
+		CBE24D481F0CFCAD006CC264 /* MTScrollViewAssist.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24D3C1F0CFCAD006CC264 /* MTScrollViewAssist.m */; };
+		CBE24D491F0CFCAD006CC264 /* UIScrollView+MTRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24D3E1F0CFCAD006CC264 /* UIScrollView+MTRefresh.m */; };
+		CBE24D4A1F0CFCAD006CC264 /* UITableView+MTRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24D411F0CFCAD006CC264 /* UITableView+MTRefresh.m */; };
+		CBE24D4B1F0CFCAD006CC264 /* MTMethodSwizzled.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE24D441F0CFCAD006CC264 /* MTMethodSwizzled.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,21 +67,21 @@
 		CBE24CD61F0B850A006CC264 /* MTRefreshComponentExample-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MTRefreshComponentExample-Prefix.pch"; sourceTree = "<group>"; };
 		CBE24CD91F0B982C006CC264 /* CustomRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomRefreshView.h; sourceTree = "<group>"; };
 		CBE24CDA1F0B982C006CC264 /* CustomRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomRefreshView.m; sourceTree = "<group>"; };
-		CBE24CFD1F0CF984006CC264 /* UICollectionView+MTRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+MTRefresh.h"; sourceTree = "<group>"; };
-		CBE24CFE1F0CF984006CC264 /* UICollectionView+MTRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+MTRefresh.m"; sourceTree = "<group>"; };
-		CBE24CFF1F0CF984006CC264 /* MTBaseRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBaseRefreshView.h; sourceTree = "<group>"; };
-		CBE24D001F0CF984006CC264 /* MTBaseRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBaseRefreshView.m; sourceTree = "<group>"; };
-		CBE24D011F0CF984006CC264 /* MTRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTRefresh.h; sourceTree = "<group>"; };
-		CBE24D021F0CF984006CC264 /* MTRefreshConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTRefreshConfig.h; sourceTree = "<group>"; };
-		CBE24D031F0CF984006CC264 /* MTRefreshConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTRefreshConfig.m; sourceTree = "<group>"; };
-		CBE24D051F0CF984006CC264 /* MTScrollViewAssist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTScrollViewAssist.h; sourceTree = "<group>"; };
-		CBE24D061F0CF984006CC264 /* MTScrollViewAssist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTScrollViewAssist.m; sourceTree = "<group>"; };
-		CBE24D071F0CF984006CC264 /* UIScrollView+MTRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MTRefresh.h"; sourceTree = "<group>"; };
-		CBE24D081F0CF984006CC264 /* UIScrollView+MTRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MTRefresh.m"; sourceTree = "<group>"; };
-		CBE24D0A1F0CF984006CC264 /* UITableView+MTRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+MTRefresh.h"; sourceTree = "<group>"; };
-		CBE24D0B1F0CF984006CC264 /* UITableView+MTRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+MTRefresh.m"; sourceTree = "<group>"; };
-		CBE24D0D1F0CF984006CC264 /* MTMethodSwizzled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTMethodSwizzled.h; sourceTree = "<group>"; };
-		CBE24D0E1F0CF984006CC264 /* MTMethodSwizzled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTMethodSwizzled.m; sourceTree = "<group>"; };
+		CBE24D331F0CFCAD006CC264 /* UICollectionView+MTRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+MTRefresh.h"; sourceTree = "<group>"; };
+		CBE24D341F0CFCAD006CC264 /* UICollectionView+MTRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+MTRefresh.m"; sourceTree = "<group>"; };
+		CBE24D351F0CFCAD006CC264 /* MTBaseRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBaseRefreshView.h; sourceTree = "<group>"; };
+		CBE24D361F0CFCAD006CC264 /* MTBaseRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBaseRefreshView.m; sourceTree = "<group>"; };
+		CBE24D371F0CFCAD006CC264 /* MTRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTRefresh.h; sourceTree = "<group>"; };
+		CBE24D381F0CFCAD006CC264 /* MTRefreshConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTRefreshConfig.h; sourceTree = "<group>"; };
+		CBE24D391F0CFCAD006CC264 /* MTRefreshConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTRefreshConfig.m; sourceTree = "<group>"; };
+		CBE24D3B1F0CFCAD006CC264 /* MTScrollViewAssist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTScrollViewAssist.h; sourceTree = "<group>"; };
+		CBE24D3C1F0CFCAD006CC264 /* MTScrollViewAssist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTScrollViewAssist.m; sourceTree = "<group>"; };
+		CBE24D3D1F0CFCAD006CC264 /* UIScrollView+MTRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MTRefresh.h"; sourceTree = "<group>"; };
+		CBE24D3E1F0CFCAD006CC264 /* UIScrollView+MTRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MTRefresh.m"; sourceTree = "<group>"; };
+		CBE24D401F0CFCAD006CC264 /* UITableView+MTRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+MTRefresh.h"; sourceTree = "<group>"; };
+		CBE24D411F0CFCAD006CC264 /* UITableView+MTRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+MTRefresh.m"; sourceTree = "<group>"; };
+		CBE24D431F0CFCAD006CC264 /* MTMethodSwizzled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTMethodSwizzled.h; sourceTree = "<group>"; };
+		CBE24D441F0CFCAD006CC264 /* MTMethodSwizzled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTMethodSwizzled.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,7 +143,7 @@
 		CBE24C861F0B7DD1006CC264 /* MTRefreshComponentExample */ = {
 			isa = PBXGroup;
 			children = (
-				CBE24CFB1F0CF984006CC264 /* MTRefreshComponent */,
+				CBE24D311F0CFCAD006CC264 /* MTRefreshComponent */,
 				CBE24CD61F0B850A006CC264 /* MTRefreshComponentExample-Prefix.pch */,
 				CBE24C8A1F0B7DD1006CC264 /* AppDelegate.h */,
 				CBE24C8B1F0B7DD1006CC264 /* AppDelegate.m */,
@@ -201,56 +201,57 @@
 			path = ExampleView;
 			sourceTree = "<group>";
 		};
-		CBE24CFB1F0CF984006CC264 /* MTRefreshComponent */ = {
+		CBE24D311F0CFCAD006CC264 /* MTRefreshComponent */ = {
 			isa = PBXGroup;
 			children = (
-				CBE24CFC1F0CF984006CC264 /* CollectionView */,
-				CBE24CFF1F0CF984006CC264 /* MTBaseRefreshView.h */,
-				CBE24D001F0CF984006CC264 /* MTBaseRefreshView.m */,
-				CBE24D011F0CF984006CC264 /* MTRefresh.h */,
-				CBE24D021F0CF984006CC264 /* MTRefreshConfig.h */,
-				CBE24D031F0CF984006CC264 /* MTRefreshConfig.m */,
-				CBE24D041F0CF984006CC264 /* ScrollView */,
-				CBE24D091F0CF984006CC264 /* TableView */,
-				CBE24D0C1F0CF984006CC264 /* Tools */,
+				CBE24D321F0CFCAD006CC264 /* CollectionView */,
+				CBE24D351F0CFCAD006CC264 /* MTBaseRefreshView.h */,
+				CBE24D361F0CFCAD006CC264 /* MTBaseRefreshView.m */,
+				CBE24D371F0CFCAD006CC264 /* MTRefresh.h */,
+				CBE24D381F0CFCAD006CC264 /* MTRefreshConfig.h */,
+				CBE24D391F0CFCAD006CC264 /* MTRefreshConfig.m */,
+				CBE24D3A1F0CFCAD006CC264 /* ScrollView */,
+				CBE24D3F1F0CFCAD006CC264 /* TableView */,
+				CBE24D421F0CFCAD006CC264 /* Tools */,
 			);
-			path = MTRefreshComponent;
+			name = MTRefreshComponent;
+			path = ../../../MTRefreshComponent;
 			sourceTree = "<group>";
 		};
-		CBE24CFC1F0CF984006CC264 /* CollectionView */ = {
+		CBE24D321F0CFCAD006CC264 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				CBE24CFD1F0CF984006CC264 /* UICollectionView+MTRefresh.h */,
-				CBE24CFE1F0CF984006CC264 /* UICollectionView+MTRefresh.m */,
+				CBE24D331F0CFCAD006CC264 /* UICollectionView+MTRefresh.h */,
+				CBE24D341F0CFCAD006CC264 /* UICollectionView+MTRefresh.m */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
 		};
-		CBE24D041F0CF984006CC264 /* ScrollView */ = {
+		CBE24D3A1F0CFCAD006CC264 /* ScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				CBE24D051F0CF984006CC264 /* MTScrollViewAssist.h */,
-				CBE24D061F0CF984006CC264 /* MTScrollViewAssist.m */,
-				CBE24D071F0CF984006CC264 /* UIScrollView+MTRefresh.h */,
-				CBE24D081F0CF984006CC264 /* UIScrollView+MTRefresh.m */,
+				CBE24D3B1F0CFCAD006CC264 /* MTScrollViewAssist.h */,
+				CBE24D3C1F0CFCAD006CC264 /* MTScrollViewAssist.m */,
+				CBE24D3D1F0CFCAD006CC264 /* UIScrollView+MTRefresh.h */,
+				CBE24D3E1F0CFCAD006CC264 /* UIScrollView+MTRefresh.m */,
 			);
 			path = ScrollView;
 			sourceTree = "<group>";
 		};
-		CBE24D091F0CF984006CC264 /* TableView */ = {
+		CBE24D3F1F0CFCAD006CC264 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				CBE24D0A1F0CF984006CC264 /* UITableView+MTRefresh.h */,
-				CBE24D0B1F0CF984006CC264 /* UITableView+MTRefresh.m */,
+				CBE24D401F0CFCAD006CC264 /* UITableView+MTRefresh.h */,
+				CBE24D411F0CFCAD006CC264 /* UITableView+MTRefresh.m */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
 		};
-		CBE24D0C1F0CF984006CC264 /* Tools */ = {
+		CBE24D421F0CFCAD006CC264 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				CBE24D0D1F0CF984006CC264 /* MTMethodSwizzled.h */,
-				CBE24D0E1F0CF984006CC264 /* MTMethodSwizzled.m */,
+				CBE24D431F0CFCAD006CC264 /* MTMethodSwizzled.h */,
+				CBE24D441F0CFCAD006CC264 /* MTMethodSwizzled.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -409,15 +410,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBE24C8F1F0B7DD1006CC264 /* ViewController.m in Sources */,
-				CBE24D0F1F0CF984006CC264 /* UICollectionView+MTRefresh.m in Sources */,
+				CBE24D451F0CFCAD006CC264 /* UICollectionView+MTRefresh.m in Sources */,
 				CBE24C8C1F0B7DD1006CC264 /* AppDelegate.m in Sources */,
 				CBE24C891F0B7DD1006CC264 /* main.m in Sources */,
-				CBE24D111F0CF984006CC264 /* MTRefreshConfig.m in Sources */,
-				CBE24D131F0CF984006CC264 /* UIScrollView+MTRefresh.m in Sources */,
-				CBE24D121F0CF984006CC264 /* MTScrollViewAssist.m in Sources */,
-				CBE24D101F0CF984006CC264 /* MTBaseRefreshView.m in Sources */,
-				CBE24D141F0CF984006CC264 /* UITableView+MTRefresh.m in Sources */,
-				CBE24D151F0CF984006CC264 /* MTMethodSwizzled.m in Sources */,
+				CBE24D471F0CFCAD006CC264 /* MTRefreshConfig.m in Sources */,
+				CBE24D491F0CFCAD006CC264 /* UIScrollView+MTRefresh.m in Sources */,
+				CBE24D481F0CFCAD006CC264 /* MTScrollViewAssist.m in Sources */,
+				CBE24D461F0CFCAD006CC264 /* MTBaseRefreshView.m in Sources */,
+				CBE24D4A1F0CFCAD006CC264 /* UITableView+MTRefresh.m in Sources */,
+				CBE24D4B1F0CFCAD006CC264 /* MTMethodSwizzled.m in Sources */,
 				CBE24CCA1F0B7EE6006CC264 /* TableViewDefaultController.m in Sources */,
 				CBE24CD01F0B7F10006CC264 /* CollectionViewDefaultController.m in Sources */,
 				CBE24CDB1F0B982C006CC264 /* CustomRefreshView.m in Sources */,
