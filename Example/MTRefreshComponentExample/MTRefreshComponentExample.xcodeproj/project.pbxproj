@@ -209,7 +209,6 @@
 		CBE24D311F0CFCAD006CC264 /* MTRefreshComponent */ = {
 			isa = PBXGroup;
 			children = (
-				CBE24D321F0CFCAD006CC264 /* CollectionView */,
 				CBE24D351F0CFCAD006CC264 /* MTBaseRefreshView.h */,
 				CBE24D361F0CFCAD006CC264 /* MTBaseRefreshView.m */,
 				CBE24D371F0CFCAD006CC264 /* MTRefresh.h */,
@@ -217,6 +216,7 @@
 				CBE24D391F0CFCAD006CC264 /* MTRefreshConfig.m */,
 				CBE24D3A1F0CFCAD006CC264 /* ScrollView */,
 				CBE24D3F1F0CFCAD006CC264 /* TableView */,
+				CBE24D321F0CFCAD006CC264 /* CollectionView */,
 				CBE24D421F0CFCAD006CC264 /* Tools */,
 			);
 			name = MTRefreshComponent;
