@@ -1,17 +1,17 @@
-#MTRefreshComponent ----UITableView/CollectionView自动刷新加载、空视图显示隐藏组件
+# MTRefreshComponent ----UITableView/CollectionView自动刷新加载、空视图显示隐藏组件
 
-###前言
+### 前言
 >为简化业务端代码滚动视图的刷新加载、空视图显示功能。接到需求需要提供一个可以自动完成刷新、加载、空视图控制的组件。
 要求：
 1.无侵入性
 2.通用性强
 3.集成成本低
 
-###集成
-####方式一：
+### 集成
+#### 方式一：
 pod方式：
 由于目前版本还处于调试阶段，待版本稳定后提供pod方式集成。
-####方式二：
+#### 方式二：
 集成代码方式：
 第一步：
 将MTRefreshComponent文件夹集成入项目中，并在.pch文件中引入头文件
@@ -121,5 +121,5 @@ self.collectionView.nullDataView = your_custom_view;
 
 ```
 
-###未完待续
+### 未完待续
 目前该组件还处于初级阶段，可能会有一些问题，会在以后的时间中不断更新完善。
