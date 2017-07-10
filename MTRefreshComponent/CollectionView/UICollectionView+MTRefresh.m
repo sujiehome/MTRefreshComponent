@@ -10,6 +10,7 @@
 #import <MJRefresh/MJRefresh.h>
 #import <objc/message.h>
 #import "MTRefreshConfig.h"
+#import "MTMethodSwizzled.h"
 
 static char kUnrealizedSection;
 static char kUnrealizedSectionHeader;
@@ -22,13 +23,13 @@ static char kUnrealizedSectionFooter;
 
 + (void)load
 {
-    [self exchangeImpWithClass:self originalSel:@selector(reloadData) swizzledSel:@selector(hook_reloadData)];
+    [MTMethodSwizzled exchangeImpWithClass:self originalSel:@selector(reloadData) swizzledSel:@selector(hook_reloadData)];
     
-    [self exchangeImpWithClass:self originalSel:@selector(setDataSource:) swizzledSel:@selector(hook_setDataSource:)];
+    [MTMethodSwizzled exchangeImpWithClass:self originalSel:@selector(setDataSource:) swizzledSel:@selector(hook_setDataSource:)];
     
-    [self exchangeImpWithClass:self originalSel:@selector(setDelegate:) swizzledSel:@selector(hook_setDelegate:)];
+    [MTMethodSwizzled exchangeImpWithClass:self originalSel:@selector(setDelegate:) swizzledSel:@selector(hook_setDelegate:)];
     
-    [self exchangeImpWithClass:self originalSel:@selector(layoutSubviews) swizzledSel:@selector(hook_layoutSubviews)];
+    [MTMethodSwizzled exchangeImpWithClass:self originalSel:@selector(layoutSubviews) swizzledSel:@selector(hook_layoutSubviews)];
 }
 
 - (void)hook_reloadData
@@ -57,18 +58,42 @@ static char kUnrealizedSectionFooter;
 
 - (void)hook_setDataSource:(id<UICollectionViewDataSource>)dataSource
 {
-    [UICollectionView exchangeImpWithOriginalClass:[dataSource class] swizzledClass:[self class] originalSel:@selector(collectionView:numberOfItemsInSection:) swizzledSel:@selector(hook_collectionView:numberOfItemsInSection:) tmpSel:@selector(tmp_collectionView:numberOfItemsInSection:) msgForwardSel:@selector(msgForwardHandle)];
+    [MTMethodSwizzled exchangeImpWithOriginalClass:[dataSource class]
+                                       originalSel:@selector(collectionView:numberOfItemsInSection:)
+                                            tmpSel:@selector(tmp_collectionView:numberOfItemsInSection:)
+                                     swizzledClass:[self class]
+                                       swizzledSel:@selector(hook_collectionView:numberOfItemsInSection:)
+                                   msgForwardClass:nil
+                                     msgForwardSel:nil];
     
-    [UICollectionView exchangeImpWithOriginalClass:[dataSource class] swizzledClass:[self class] originalSel:@selector(numberOfSectionsInCollectionView:) swizzledSel:@selector(hook_numberOfSectionsInCollectionView:) tmpSel:@selector(tmp_numberOfSectionsInCollectionView:) msgForwardSel:@selector(msgForward_numberOfSectionsInCollectionView:)];
+    [MTMethodSwizzled exchangeImpWithOriginalClass:[dataSource class]
+                                       originalSel:@selector(numberOfSectionsInCollectionView:)
+                                            tmpSel:@selector(tmp_numberOfSectionsInCollectionView:)
+                                     swizzledClass:[self class]
+                                       swizzledSel:@selector(hook_numberOfSectionsInCollectionView:)
+                                   msgForwardClass:[self class]
+                                     msgForwardSel:@selector(msgForward_numberOfSectionsInCollectionView:)];
     
     [self hook_setDataSource:dataSource];
 }
 
 - (void)hook_setDelegate:(id<UICollectionViewDelegate>)delegate
 {
-    [UICollectionView exchangeImpWithOriginalClass:[delegate class] swizzledClass:[self class] originalSel:@selector(collectionView:layout:referenceSizeForHeaderInSection:) swizzledSel:@selector(hook_collectionView:layout:referenceSizeForHeaderInSection:) tmpSel:@selector(tmp_collectionView:layout:referenceSizeForHeaderInSection:) msgForwardSel:@selector(msgForward_collectionView:layout:referenceSizeForHeaderInSection:)];
+    [MTMethodSwizzled exchangeImpWithOriginalClass:[delegate class]
+                                       originalSel:@selector(collectionView:layout:referenceSizeForHeaderInSection:)
+                                            tmpSel:@selector(tmp_collectionView:layout:referenceSizeForHeaderInSection:)
+                                     swizzledClass:[self class]
+                                       swizzledSel:@selector(hook_collectionView:layout:referenceSizeForHeaderInSection:)
+                                   msgForwardClass:[self class]
+                                     msgForwardSel:@selector(msgForward_collectionView:layout:referenceSizeForHeaderInSection:)];
     
-    [UICollectionView exchangeImpWithOriginalClass:[delegate class] swizzledClass:[self class] originalSel:@selector(collectionView:layout:referenceSizeForFooterInSection:) swizzledSel:@selector(hook_collectionView:layout:referenceSizeForFooterInSection:) tmpSel:@selector(tmp_collectionView:layout:referenceSizeForFooterInSection:) msgForwardSel:@selector(msgForward_collectionView:layout:referenceSizeForFooterInSection:)];
+    [MTMethodSwizzled exchangeImpWithOriginalClass:[delegate class]
+                                       originalSel:@selector(collectionView:layout:referenceSizeForFooterInSection:)
+                                            tmpSel:@selector(tmp_collectionView:layout:referenceSizeForFooterInSection:)
+                                     swizzledClass:[self class]
+                                       swizzledSel:@selector(hook_collectionView:layout:referenceSizeForFooterInSection:)
+                                   msgForwardClass:[self class]
+                                     msgForwardSel:@selector(msgForward_collectionView:layout:referenceSizeForFooterInSection:)];
     
     [self hook_setDelegate:delegate];
 }
@@ -174,49 +199,6 @@ static char kUnrealizedSectionFooter;
 }
 
 #pragma mark - Swizzled
-+ (void)exchangeImpWithClass:(Class)cls originalSel:(SEL)originalSel swizzledSel:(SEL)swizzledSel
-{
-    Method originalMethod = class_getInstanceMethod(cls, originalSel);
-    Method swizzledMethod = class_getInstanceMethod(cls, swizzledSel);
-    
-    BOOL didAddMethod = class_addMethod(cls,
-                                        originalSel,
-                                        method_getImplementation(originalMethod),
-                                        method_getTypeEncoding(originalMethod));
-    
-    if (didAddMethod) {
-        //如果add成功，说明原始类并没有实现此方法的imp，为避免调用时执行消息转发，此处做统一处理
-        originalMethod = class_getInstanceMethod(cls, originalSel);
-        SEL handleSel = @selector(msgForwardHandle);
-        IMP handleIMP = class_getMethodImplementation(self, handleSel);
-        method_setImplementation(originalMethod, handleIMP);
-    }
-    
-    method_exchangeImplementations(originalMethod, swizzledMethod);
-}
-
-//跨类交换方法
-+ (void)exchangeImpWithOriginalClass:(Class)oriCls swizzledClass:(Class)swiCls originalSel:(SEL)oriSel swizzledSel:(SEL)swiSel tmpSel:(SEL)tmpSel msgForwardSel:(SEL)msgForwardSel
-{
-    //增加原始方法
-    Method originalMethod = class_getInstanceMethod(oriCls, oriSel);
-    BOOL didAddOriMethod = class_addMethod(oriCls, oriSel, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
-    if (didAddOriMethod) {
-        originalMethod = class_getInstanceMethod(oriCls, oriSel);
-        SEL handleSel = msgForwardSel;
-        IMP handleIMP = class_getMethodImplementation(self, handleSel);
-        method_setImplementation(originalMethod, handleIMP);
-    }
-    
-    //增加临时中转方法
-    class_addMethod(oriCls, tmpSel, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
-    
-    
-    Method swizzledMethod = class_getInstanceMethod(swiCls, swiSel);
-    class_replaceMethod(oriCls, oriSel, method_getImplementation(swizzledMethod), method_getTypeEncoding(originalMethod));
-    
-}
-
 - (void)msgForward_numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     objc_setAssociatedObject(self, &kUnrealizedSection, @YES, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -230,15 +212,6 @@ static char kUnrealizedSectionFooter;
 - (void)msgForward_collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
 {
     objc_setAssociatedObject(self, &kUnrealizedSectionFooter, @YES, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (void)msgForwardHandle
-{
-    /**
-     备用方法，防止原类中没有实现需要交换的方法，导致交换后执行消息转发最终没有处理导致crash。
-     后续可以在做底层安全时，做到相应处理类中。
-     */
-    NSLog(@"%s  ", __FUNCTION__);
 }
 
 #pragma mark - Setter & Getter
