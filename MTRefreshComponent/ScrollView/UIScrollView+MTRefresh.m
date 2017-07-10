@@ -116,8 +116,6 @@
         
         objc_setAssociatedObject(self, @selector(refreshView), view, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
-    
-    [self addAssist];
 }
 
 - (void)noMoreData
