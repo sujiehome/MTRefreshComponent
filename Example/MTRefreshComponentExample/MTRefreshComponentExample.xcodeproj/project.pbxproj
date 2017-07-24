@@ -313,7 +313,8 @@
 				TargetAttributes = {
 					CBE24C831F0B7DD1006CC264 = {
 						CreatedOnToolsVersion = 8.3.3;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 53CS8BEBM4;
+						ProvisioningStyle = Manual;
 					};
 					CBE24C9C1F0B7DD1006CC264 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -566,12 +567,16 @@
 			baseConfigurationReference = B3E6F7CE2533A3E4740A9916 /* Pods-MTRefreshComponentExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 53CS8BEBM4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MTRefreshComponentExample/MTRefreshComponentExample-Prefix.pch";
 				INFOPLIST_FILE = MTRefreshComponentExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Monk.Tang.MTRefreshComponentExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "bdcdd564-d407-46d2-8bf9-7669a1301b3a";
+				PROVISIONING_PROFILE_SPECIFIER = team_leitingb2pro_development;
 			};
 			name = Debug;
 		};
@@ -580,12 +585,15 @@
 			baseConfigurationReference = A58093D52466842911E075FB /* Pods-MTRefreshComponentExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MTRefreshComponentExample/MTRefreshComponentExample-Prefix.pch";
 				INFOPLIST_FILE = MTRefreshComponentExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Monk.Tang.MTRefreshComponentExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
