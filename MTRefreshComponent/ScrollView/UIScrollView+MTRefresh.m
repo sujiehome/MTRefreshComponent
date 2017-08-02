@@ -25,7 +25,7 @@
 {
     if ([self isMemberOfClass:[UITableView class]] ||
         [self isMemberOfClass:[UICollectionView class]]) {
-        if (!objc_getAssociatedObject(self.superview, @selector(addAssist))) {
+        if (self.superview && !objc_getAssociatedObject(self.superview, @selector(addAssist))) {
             [self addAssist];
         }
     }
