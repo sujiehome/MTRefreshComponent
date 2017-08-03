@@ -43,7 +43,22 @@
 {
     //增加原始方法
     Method originalMethod = class_getInstanceMethod(oriCls, oriSel);
-    BOOL didAddOriMethod = class_addMethod(oriCls, oriSel, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
+    
+    /**
+     此段while解决父类中实现而子类未实现方法的情况下，直接在子类添加方法实现，会造成父类方法不执行。
+     在交换方法时循环父类检查是否有实现，如果直到超类也没有实现的话，则正常设置。
+     如果父类有实现，则不需要给方法添加实现，让方法自行执行消息转发寻找父类中的实现位置。
+     */
+    BOOL didAddOriMethod = YES;
+    Class tmpClass = oriCls;
+    while (tmpClass) {
+        didAddOriMethod = class_addMethod(tmpClass, oriSel, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
+        if (!didAddOriMethod) {
+            break;
+        }
+        tmpClass = class_getSuperclass(tmpClass);
+    }
+    
     if (didAddOriMethod) {
         originalMethod = class_getInstanceMethod(oriCls, oriSel);
         IMP handleIMP;
