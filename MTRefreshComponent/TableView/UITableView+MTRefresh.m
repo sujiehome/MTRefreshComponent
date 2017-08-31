@@ -36,10 +36,16 @@ static char kUnrealizedSectionFooter;
 {
     if (self.mj_header) {
         [self.mj_header endRefreshing];
+        if (!self.window || self.mj_header.state == MJRefreshStateIdle) {
+            [self resetContentInset];
+        }
     }
     
     if (self.mj_footer.state != MJRefreshStateNoMoreData) {
         [self.mj_footer endRefreshing];
+        if (!self.window || self.mj_footer.state == MJRefreshStateIdle) {
+            [self resetContentInset];
+        }
     }
     
     self.showNullDataView = YES;
@@ -95,6 +101,17 @@ static char kUnrealizedSectionFooter;
                                      msgForwardSel:@selector(msgForward_heightForFooterInSection)];
     
     [self hook_setDelegate:delegate];
+}
+
+#pragma mark - Private Method
+- (void)resetContentInset
+{
+    if (self.mj_header.scrollViewOriginalInset.top < 0) {
+        self.contentInset = UIEdgeInsetsMake(self.mj_header.mj_origin.y + self.mj_header.mj_h, 0, 0, 0);
+        self.contentOffset = CGPointMake(0, self.contentOffset.y - self.mj_header.mj_h);
+    }else {
+        self.contentInset = self.mj_header.scrollViewOriginalInset;
+    }
 }
 
 #pragma mark - UITableViewDataSource

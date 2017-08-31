@@ -14,6 +14,10 @@
 /** 获取实例 */
 + (instancetype)shared;
 
+#pragma mark - 默认属性配置
+/** 刷新超时时长 */
+@property (nonatomic, assign) float refreshTimeout;
+
 #pragma mark - 默认顶部刷新控件配置 已配置自定义视图则无效
 /** 闲置状态 */
 @property (nonatomic, copy) NSString *headerIdleText;

@@ -16,16 +16,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../MTRefreshComponent/Tools/MTMethodSwizzled.m"
-            timestampString = "522562402.205643"
+            filePath = "../../MTRefreshComponent/ScrollView/UIScrollView+MTRefresh.m"
+            timestampString = "525851865.306044"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "+exchangeImpWithOriginalClass:originalSel:tmpSel:swizzledClass:swizzledSel:msgForwardClass:msgForwardSel:"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "-addTopRefreshWithTriggerBlock:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

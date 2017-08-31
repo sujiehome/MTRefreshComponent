@@ -14,6 +14,9 @@
 #import "MTScrollViewAssist.h"
 #import "MTMethodSwizzled.h"
 
+static float const kRefreshTimeout = 3;
+static CGFloat const kTopRefreshViewHeight = 40;
+
 @implementation UIScrollView (MTRefresh)
 
 + (void)load
@@ -36,8 +39,21 @@
 - (void)addTopRefreshWithTriggerBlock:(void (^)())triggerBlock
 {
     if (!self.mj_header) {
+        __weak typeof(self) wself = self;
         
-        MJRefreshStateHeader *header = [MJRefreshStateHeader headerWithRefreshingBlock:triggerBlock];
+        MJRefreshStateHeader *header = [MJRefreshStateHeader headerWithRefreshingBlock:^{
+            triggerBlock();
+            
+            float timeout = [LPRefreshConfig shared].refreshTimeout > 0 ? [LPRefreshConfig shared].refreshTimeout : kRefreshTimeout;
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeout * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                if (wself.mj_header.state == MJRefreshStateRefreshing) {
+                    [wself.mj_header endRefreshing];
+                    if (!wself.window || wself.mj_header.state == MJRefreshStateIdle) {
+                        [wself resetContentInset];
+                    }
+                }
+            });
+        }];
         header.lastUpdatedTimeLabel.hidden = YES;
         self.mj_header = header;
         
@@ -79,9 +95,33 @@
 {
     if (!self.mj_footer) {
         if (isAuto) {
-            self.mj_footer = [MJRefreshAutoStateFooter footerWithRefreshingBlock:triggerBlock];
+            self.mj_footer = [MJRefreshAutoStateFooter footerWithRefreshingBlock:^{
+                triggerBlock();
+                
+                float timeout = [LPRefreshConfig shared].refreshTimeout > 0 ? [LPRefreshConfig shared].refreshTimeout : kRefreshTimeout;
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeout * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    if (wself.mj_footer.state == MJRefreshStateRefreshing) {
+                        [wself.mj_footer endRefreshing];
+                        if (!wself.window || wself.mj_footer.state == MJRefreshStateIdle) {
+                            [wself resetContentInset];
+                        }
+                    }
+                });
+            }];
         }else {
-            self.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:triggerBlock];
+            self.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+                triggerBlock();
+                
+                float timeout = [LPRefreshConfig shared].refreshTimeout > 0 ? [LPRefreshConfig shared].refreshTimeout : kRefreshTimeout;
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeout * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    if (wself.mj_footer.state == MJRefreshStateRefreshing) {
+                        [wself.mj_footer endRefreshing];
+                        if (!wself.window || wself.mj_footer.state == MJRefreshStateIdle) {
+                            [wself resetContentInset];
+                        }
+                    }
+                });
+            }];
         }
         [self footerViewConfig];
     }
@@ -101,7 +141,20 @@
 - (void)addTopRefreshCustomView:(MTBaseRefreshView *)view withTriggerBlock:(void (^)())triggerBlock
 {
     if (!self.mj_header) {
-        MJRefreshStateHeader *header = [MJRefreshStateHeader headerWithRefreshingBlock:triggerBlock];
+        __weak typeof(self) wself = self;
+        MJRefreshStateHeader *header = [MJRefreshStateHeader headerWithRefreshingBlock:^{
+            triggerBlock();
+            
+            float timeout = [LPRefreshConfig shared].refreshTimeout > 0 ? [LPRefreshConfig shared].refreshTimeout : kRefreshTimeout;
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeout * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                if (wself.mj_header.state == MJRefreshStateRefreshing) {
+                    [wself.mj_header endRefreshing];
+                    if (!wself.window || wself.mj_header.state == MJRefreshStateIdle) {
+                        [wself resetContentInset];
+                    }
+                }
+            });
+        }];
         header.lastUpdatedTimeLabel.hidden = YES;
         header.stateLabel.hidden = YES;
         self.mj_header = header;
@@ -123,6 +176,9 @@
     if (self.mj_footer) {
         self.mj_footer.state = MJRefreshStateNoMoreData;//此句是为了处理使用back footer时，设置state时机不准确的问题
         [self.mj_footer endRefreshingWithNoMoreData];
+        if (!self.window) {
+            [self resetContentInset];
+        }
     }
 }
 
@@ -182,6 +238,16 @@
 - (MTBaseRefreshView *)refreshView
 {
     return objc_getAssociatedObject(self, @selector(refreshView));
+}
+
+- (void)resetContentInset
+{
+    if (self.mj_header.scrollViewOriginalInset.top < 0) {
+        self.contentInset = UIEdgeInsetsMake(self.mj_header.mj_origin.y + self.mj_header.mj_h, 0, 0, 0);
+        self.contentOffset = CGPointMake(0, self.contentOffset.y - self.mj_header.mj_h);
+    }else {
+        self.contentInset = self.mj_header.scrollViewOriginalInset;
+    }
 }
 
 #pragma mark - Config
