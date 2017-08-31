@@ -44,7 +44,7 @@ static CGFloat const kTopRefreshViewHeight = 40;
         MJRefreshStateHeader *header = [MJRefreshStateHeader headerWithRefreshingBlock:^{
             triggerBlock();
             
-            float timeout = [LPRefreshConfig shared].refreshTimeout > 0 ? [LPRefreshConfig shared].refreshTimeout : kRefreshTimeout;
+            float timeout = [MTRefreshConfig shared].refreshTimeout > 0 ? [MTRefreshConfig shared].refreshTimeout : kRefreshTimeout;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeout * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 if (wself.mj_header.state == MJRefreshStateRefreshing) {
                     [wself.mj_header endRefreshing];
@@ -62,12 +62,14 @@ static CGFloat const kTopRefreshViewHeight = 40;
             if (className) {
                 MTBaseRefreshView *view = [[className alloc] init];
                 if ([view isKindOfClass:[MTBaseRefreshView class]]) {
+                    CGFloat tmpHeight = [MTRefreshConfig shared].customTopViewHeight > 0 ? [MTRefreshConfig shared].customTopViewHeight : kTopRefreshViewHeight;
+                    view.frame = CGRectMake(0, 0, header.bounds.size.width, tmpHeight);
                     header.stateLabel.hidden = YES;
                     [header endRefreshingWithCompletionBlock:^{
                         [view completion];
                     }];
                     
-                    view.frame = header.bounds;
+                    header.frame = view.frame;
                     [header addSubview:view];
                     
                     objc_setAssociatedObject(self, @selector(refreshView), view, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -95,10 +97,12 @@ static CGFloat const kTopRefreshViewHeight = 40;
 {
     if (!self.mj_footer) {
         if (isAuto) {
+            __weak typeof(self) wself = self;
+            
             self.mj_footer = [MJRefreshAutoStateFooter footerWithRefreshingBlock:^{
                 triggerBlock();
                 
-                float timeout = [LPRefreshConfig shared].refreshTimeout > 0 ? [LPRefreshConfig shared].refreshTimeout : kRefreshTimeout;
+                float timeout = [MTRefreshConfig shared].refreshTimeout > 0 ? [MTRefreshConfig shared].refreshTimeout : kRefreshTimeout;
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeout * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     if (wself.mj_footer.state == MJRefreshStateRefreshing) {
                         [wself.mj_footer endRefreshing];
@@ -109,10 +113,12 @@ static CGFloat const kTopRefreshViewHeight = 40;
                 });
             }];
         }else {
+            __weak typeof(self) wself = self;
+            
             self.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
                 triggerBlock();
                 
-                float timeout = [LPRefreshConfig shared].refreshTimeout > 0 ? [LPRefreshConfig shared].refreshTimeout : kRefreshTimeout;
+                float timeout = [MTRefreshConfig shared].refreshTimeout > 0 ? [MTRefreshConfig shared].refreshTimeout : kRefreshTimeout;
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeout * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     if (wself.mj_footer.state == MJRefreshStateRefreshing) {
                         [wself.mj_footer endRefreshing];
@@ -145,7 +151,7 @@ static CGFloat const kTopRefreshViewHeight = 40;
         MJRefreshStateHeader *header = [MJRefreshStateHeader headerWithRefreshingBlock:^{
             triggerBlock();
             
-            float timeout = [LPRefreshConfig shared].refreshTimeout > 0 ? [LPRefreshConfig shared].refreshTimeout : kRefreshTimeout;
+            float timeout = [MTRefreshConfig shared].refreshTimeout > 0 ? [MTRefreshConfig shared].refreshTimeout : kRefreshTimeout;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeout * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 if (wself.mj_header.state == MJRefreshStateRefreshing) {
                     [wself.mj_header endRefreshing];
@@ -164,7 +170,7 @@ static CGFloat const kTopRefreshViewHeight = 40;
             [view completion];
         }];
         
-        view.center = CGPointMake(self.mj_header.center.x, view.center.y);
+        self.mj_header.frame = CGRectMake(0, 0, self.mj_header.bounds.size.width, view.bounds.size.height);
         [self.mj_header addSubview:view];
         
         objc_setAssociatedObject(self, @selector(refreshView), view, OBJC_ASSOCIATION_RETAIN_NONATOMIC);

@@ -15,7 +15,7 @@
 + (instancetype)shared;
 
 #pragma mark - 默认属性配置
-/** 刷新超时时长 */
+/** 刷新超时时长 默认3秒 */
 @property (nonatomic, assign) float refreshTimeout;
 
 #pragma mark - 默认顶部刷新控件配置 已配置自定义视图则无效
@@ -51,6 +51,9 @@
 #pragma mark - 自定义视图配置
 /** 自定义顶部刷新视图 必须继承LPBaseRefreshView */
 @property (nonatomic, copy) NSString *customTopView;
+/** 自定义顶部刷新视图高度  默认为40 */
+@property (nonatomic, assign) CGFloat customTopViewHeight;
+
 /** 自定义空数据视图 */
 @property (nonatomic, copy) NSString *customNullDataView;
 
