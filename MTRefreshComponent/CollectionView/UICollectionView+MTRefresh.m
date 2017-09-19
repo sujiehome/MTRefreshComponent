@@ -118,7 +118,6 @@ static char kUnrealizedSectionFooter;
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)hook_collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    //@1  一直没搞懂为何@1位置一定要用self，@2位置一定要用collectionView，否则UIAlertView show的时候会crash。求各位大神指点。
     NSInteger item = [self tmp_collectionView:collectionView numberOfItemsInSection:section];
     
     BOOL b = ((BOOL (*)(id, SEL))objc_msgSend)(collectionView, @selector(showNullDataView));
@@ -135,7 +134,6 @@ static char kUnrealizedSectionFooter;
 
 - (NSInteger)hook_numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    //@1 一直没搞懂为何@1位置一定要用self，@2位置一定要用collectionView，否则UIAlertView show的时候会crash。求各位大神指点。
     NSInteger section = [self tmp_numberOfSectionsInCollectionView:collectionView];
     
     NSNumber *unrealized = objc_getAssociatedObject(self, &kUnrealizedSection);
@@ -165,8 +163,7 @@ static char kUnrealizedSectionFooter;
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)hook_collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    //@2 一直没搞懂为何@1位置一定要用self，@2位置一定要用collectionView，否则UIAlertView show的时候会crash。求各位大神指点。
-    CGSize size = [collectionView tmp_collectionView:collectionView layout:collectionViewLayout referenceSizeForHeaderInSection:section];
+    CGSize size = [self tmp_collectionView:collectionView layout:collectionViewLayout referenceSizeForHeaderInSection:section];
     
     NSNumber *unrealized = objc_getAssociatedObject(self, &kUnrealizedSectionHeader);
     if ([unrealized boolValue]) {
@@ -188,8 +185,7 @@ static char kUnrealizedSectionFooter;
 
 - (CGSize)hook_collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
 {
-    //@2 一直没搞懂为何@1位置一定要用self，@2位置一定要用collectionView，否则UIAlertView show的时候会crash。求各位大神指点。
-    CGSize size = [collectionView tmp_collectionView:collectionView layout:collectionViewLayout referenceSizeForFooterInSection:section];
+    CGSize size = [self tmp_collectionView:collectionView layout:collectionViewLayout referenceSizeForFooterInSection:section];
     
     NSNumber *unrealized = objc_getAssociatedObject(self, &kUnrealizedSectionFooter);
     if ([unrealized boolValue]) {
@@ -220,19 +216,22 @@ static char kUnrealizedSectionFooter;
 }
 
 #pragma mark - Swizzled
-- (void)msgForward_numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+- (NSInteger)msgForward_numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     objc_setAssociatedObject(self, &kUnrealizedSection, @YES, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    return 0;
 }
 
-- (void)msgForward_collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+- (CGSize)msgForward_collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
     objc_setAssociatedObject(self, &kUnrealizedSectionHeader, @YES, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    return CGSizeZero;
 }
 
-- (void)msgForward_collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
+- (CGSize)msgForward_collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
 {
     objc_setAssociatedObject(self, &kUnrealizedSectionFooter, @YES, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    return CGSizeZero;
 }
 
 #pragma mark - Setter & Getter

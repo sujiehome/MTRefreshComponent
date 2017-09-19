@@ -124,5 +124,3 @@ self.collectionView.nullDataView = your_custom_view;
 ### 未完待续
 目前该组件还处于初级阶段，可能会有一些问题，会在以后的时间中不断更新完善。
 
-### 问题一：
->UICollectionView+MTRefresh.m类中，@1与@2的位置调用不能统一，可以修改后调用UIAlertView show方法测试，会产生crash。原因尚未查明，希望大神指点。

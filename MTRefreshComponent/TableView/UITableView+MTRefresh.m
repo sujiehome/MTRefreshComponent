@@ -221,19 +221,22 @@ static char kUnrealizedSectionFooter;
 }
 
 #pragma mark - Swizzled
-- (void)msgForward_numberOfSectionsInTableView
+- (NSInteger)msgForward_numberOfSectionsInTableView
 {
     objc_setAssociatedObject(self, &kUnrealizedSection, @YES, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    return 0;
 }
 
-- (void)msgForward_heightForHeaderInSection
+- (CGSize)msgForward_heightForHeaderInSection
 {
     objc_setAssociatedObject(self, &kUnrealizedSectionHeader, @YES, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    return CGSizeZero;
 }
 
-- (void)msgForward_heightForFooterInSection
+- (CGSize)msgForward_heightForFooterInSection
 {
     objc_setAssociatedObject(self, &kUnrealizedSectionFooter, @YES, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    return CGSizeZero;
 }
 
 #pragma mark - Setter & Getter
