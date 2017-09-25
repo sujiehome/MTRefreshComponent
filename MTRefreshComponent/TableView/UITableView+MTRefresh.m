@@ -106,12 +106,12 @@ static char kUnrealizedSectionFooter;
 #pragma mark - Private Method
 - (void)resetContentInset
 {
-    if (self.mj_header.scrollViewOriginalInset.top < 0) {
+    [UIView animateWithDuration:0.3 animations:^{
+        if (self.mj_header.scrollViewOriginalInset.top < 0) {
+            self.contentOffset = CGPointMake(0, self.contentOffset.y - self.mj_header.mj_h);
+        }
         self.contentInset = UIEdgeInsetsMake(self.mj_header.mj_origin.y + self.mj_header.mj_h, 0, 0, 0);
-        self.contentOffset = CGPointMake(0, self.contentOffset.y - self.mj_header.mj_h);
-    }else {
-        self.contentInset = self.mj_header.scrollViewOriginalInset;
-    }
+    }];
 }
 
 #pragma mark - UITableViewDataSource
