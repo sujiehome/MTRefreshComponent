@@ -48,9 +48,7 @@ static CGFloat const kTopRefreshViewHeight = 40;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeout * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 if (wself.mj_header.state == MJRefreshStateRefreshing) {
                     [wself.mj_header endRefreshing];
-                    if (!wself.window || wself.mj_header.state == MJRefreshStateIdle) {
-                        [wself resetContentInset];
-                    }
+                    [wself fixContentInsetForIdle];
                 }
             });
         }];
@@ -106,9 +104,7 @@ static CGFloat const kTopRefreshViewHeight = 40;
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeout * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     if (wself.mj_footer.state == MJRefreshStateRefreshing) {
                         [wself.mj_footer endRefreshing];
-                        if (!wself.window || wself.mj_footer.state == MJRefreshStateIdle) {
-                            [wself resetContentInset];
-                        }
+                        [wself fixContentInsetForIdle];
                     }
                 });
             }];
@@ -122,9 +118,7 @@ static CGFloat const kTopRefreshViewHeight = 40;
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeout * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     if (wself.mj_footer.state == MJRefreshStateRefreshing) {
                         [wself.mj_footer endRefreshing];
-                        if (!wself.window || wself.mj_footer.state == MJRefreshStateIdle) {
-                            [wself resetContentInset];
-                        }
+                        [wself fixContentInsetForIdle];
                     }
                 });
             }];
@@ -155,9 +149,7 @@ static CGFloat const kTopRefreshViewHeight = 40;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeout * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 if (wself.mj_header.state == MJRefreshStateRefreshing) {
                     [wself.mj_header endRefreshing];
-                    if (!wself.window || wself.mj_header.state == MJRefreshStateIdle) {
-                        [wself resetContentInset];
-                    }
+                    [wself fixContentInsetForIdle];
                 }
             });
         }];
@@ -182,9 +174,7 @@ static CGFloat const kTopRefreshViewHeight = 40;
     if (self.mj_footer) {
         self.mj_footer.state = MJRefreshStateNoMoreData;//此句是为了处理使用back footer时，设置state时机不准确的问题
         [self.mj_footer endRefreshingWithNoMoreData];
-        if (!self.window) {
-            [self resetContentInset];
-        }
+        [self fixContentInsetForIdle];
     }
 }
 
@@ -246,13 +236,19 @@ static CGFloat const kTopRefreshViewHeight = 40;
     return objc_getAssociatedObject(self, @selector(refreshView));
 }
 
-- (void)resetContentInset
+- (void)fixContentInsetForIdle
 {
     [UIView animateWithDuration:0.3 animations:^{
-        if (self.mj_header.scrollViewOriginalInset.top < 0) {
-            self.contentOffset = CGPointMake(0, self.contentOffset.y - self.mj_header.mj_h);
+        if (self.mj_offsetY == self.mj_header.mj_h) {
+            if (self.mj_header.scrollViewOriginalInset.top < 0) {
+                UIEdgeInsets inset = self.mj_header.scrollViewOriginalInset;
+                inset.top = self.mj_header.scrollViewOriginalInset.top + self.mj_header.mj_h;
+                self.contentInset = inset;
+                self.contentOffset = CGPointMake(0, self.mj_offsetY - self.mj_header.mj_h);
+            }
+        }else {
+            self.contentInset = self.mj_header.scrollViewOriginalInset;
         }
-        self.contentInset = UIEdgeInsetsMake(self.mj_header.mj_origin.y + self.mj_header.mj_h, 0, 0, 0);
     }];
 }
 

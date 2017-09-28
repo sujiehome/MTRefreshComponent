@@ -35,18 +35,22 @@ static char kUnrealizedSectionFooter;
 - (void)hook_reloadData
 {
     if (self.mj_header) {
-        [self.mj_header endRefreshing];
-        if (!self.window || self.mj_header.state == MJRefreshStateIdle) {
-            [self resetContentInset];
+        if (self.mj_header.state == MJRefreshStateRefreshing) {
+            [self.mj_header endRefreshing];
         }
     }
     
-    if (self.mj_footer.state != MJRefreshStateNoMoreData) {
-        [self.mj_footer endRefreshing];
-        if (!self.window || self.mj_footer.state == MJRefreshStateIdle) {
-            [self resetContentInset];
+    if (self.mj_footer) {
+        if (self.mj_footer.state == MJRefreshStateRefreshing) {
+            [self.mj_footer endRefreshing];
+        }else {
+            //TODO: 处理没有更多数据情况
         }
     }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self fixContentInsetForIdle];
+    });
     
     self.showNullDataView = YES;
     
@@ -104,16 +108,21 @@ static char kUnrealizedSectionFooter;
 }
 
 #pragma mark - Private Method
-- (void)resetContentInset
+- (void)fixContentInsetForIdle
 {
     [UIView animateWithDuration:0.3 animations:^{
-        if (self.mj_header.scrollViewOriginalInset.top < 0) {
-            self.contentOffset = CGPointMake(0, self.contentOffset.y - self.mj_header.mj_h);
+        if (self.mj_offsetY == self.mj_header.mj_h) {
+            if (self.mj_header.scrollViewOriginalInset.top < 0) {
+                UIEdgeInsets inset = self.mj_header.scrollViewOriginalInset;
+                inset.top = self.mj_header.scrollViewOriginalInset.top + self.mj_header.mj_h;
+                self.contentInset = inset;
+                self.contentOffset = CGPointMake(0, self.mj_offsetY - self.mj_header.mj_h);
+            }
+        }else {
+            self.contentInset = self.mj_header.scrollViewOriginalInset;
         }
-        self.contentInset = UIEdgeInsetsMake(self.mj_header.mj_origin.y + self.mj_header.mj_h, 0, 0, 0);
     }];
 }
-
 #pragma mark - UITableViewDataSource
 - (NSInteger)hook_tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
