@@ -37,20 +37,20 @@ static char kUnrealizedSectionFooter;
     if (self.mj_header) {
         if (self.mj_header.state == MJRefreshStateRefreshing) {
             [self.mj_header endRefreshing];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self fixContentInsetForIdle];
+            });
         }
     }
     
     if (self.mj_footer) {
         if (self.mj_footer.state == MJRefreshStateRefreshing) {
             [self.mj_footer endRefreshing];
-        }else {
-            //TODO: 处理没有更多数据情况
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self fixContentInsetForIdle];
+            });
         }
     }
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self fixContentInsetForIdle];
-    });
     
     self.showNullDataView = YES;
     
