@@ -63,9 +63,9 @@ static CGFloat const kTopRefreshViewHeight = 40;
                     CGFloat tmpHeight = [MTRefreshConfig shared].customTopViewHeight > 0 ? [MTRefreshConfig shared].customTopViewHeight : kTopRefreshViewHeight;
                     view.frame = CGRectMake(0, 0, header.bounds.size.width, tmpHeight);
                     header.stateLabel.hidden = YES;
-                    [header endRefreshingWithCompletionBlock:^{
+                    header.endRefreshingCompletionBlock = ^{
                         [view completion];
-                    }];
+                    };
                     
                     header.frame = view.frame;
                     [header addSubview:view];
@@ -153,15 +153,14 @@ static CGFloat const kTopRefreshViewHeight = 40;
                 }
             });
         }];
+        header.endRefreshingCompletionBlock = ^{
+            [view completion];
+        };
         header.lastUpdatedTimeLabel.hidden = YES;
         header.stateLabel.hidden = YES;
         self.mj_header = header;
     }
     if (![self refreshView]) {
-        [self.mj_header endRefreshingWithCompletionBlock:^{
-            [view completion];
-        }];
-        
         self.mj_header.frame = CGRectMake(0, 0, self.mj_header.bounds.size.width, view.bounds.size.height);
         [self.mj_header addSubview:view];
         
@@ -218,14 +217,14 @@ static CGFloat const kTopRefreshViewHeight = 40;
 
 - (void)topBeginRefresh
 {
-    if (self.mj_header) {
+    if (self.mj_header && self.mj_header.state == MJRefreshStateIdle) {
         [self.mj_header beginRefreshing];
     }
 }
 
 - (void)bottomBeginRefresh
 {
-    if (self.mj_footer) {
+    if (self.mj_footer && self.mj_footer.state == MJRefreshStateIdle) {
         [self.mj_footer beginRefreshing];
     }
 }
